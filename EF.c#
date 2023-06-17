@@ -1,0 +1,11 @@
+IQueryable<Order_Detail>query = db.Order_Detail.Include("Order_Info").Where(a =>a.OrderID>0);  
+var orders = from o in context.Orders.Include("OrderDetails") select o;
+
+     if (!context.Entry(category).Collection(x => x.Products).IsLoaded) {
+          context.Entry(category).Collection(x => x.Products).Load();
+     }
+
+
+     if (!context.Entry(product).Reference(x => x.Category).IsLoaded) {
+          context.Entry(product).Reference(x => x.Category).Load();
+     }
